@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Traffic Prediction System</title>
+
+  <!-- CSS  -->
+  <link href="traffic.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  height: 100%;
+}
+
+/* Add a background image */
+body {
+  background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') ;
+  width: 100%;
+  background-repeat: repeat-y;
+  background-size: cover;
+  overflow-y:scroll;
+}
+
+.container {
+  height: 90%;
+  margin-top: 10%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  color: #FF9800;
+  text-align: center;
+}
+
+/* Style the form */
+#myform {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  height: 60%;
+}
+
+form label {
+  font-weight: bold;
+  font-size: 1em;
+  color: #333;
+}
+
+form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #FF9800;
+  border-radius: 5px;
+  background: transparent;
+  color: #333;
+}
+
+button {
+  background-color: #FF9800;
+  color: #fff;
+  font-size: 1em;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #FFC107;
+}
+
+
+  </style>
+</head>
+
+<body class="img-fluid">
+
+
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Traffic Prediction System</h1>
+      
+
+              <div class="row">
+    <div id="myform">
+    <form action='/predict' method="post" class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+            <label for="junction"><b>Junction</b></label>
+            <br>
+          <select class="form-select" aria-label="Default select example" name="junction">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+          </select>
+        </div>
+        <hr>
+
+        <div class="input-field col s4">
+            <label for="month"><b>Month</b></label>
+            <br>
+          <select class="form-select" aria-label="Default select example" name="month">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+          </select>
+
+        </div>
+ <hr>
+        <div class="input-field col s4">
+            <label for="date_no"><b>Date</b></label>
+            <br>
+          <select class="form-select" aria-label="Default select example" name="date_no">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+          </select>
+        </div>
+ <hr>
+        <div class="input-field col s4">
+            <label for="day"><b>Day</b></label>
+            <br>
+          <select class="form-select" aria-label="Default select example" name="day">
+              <option value="1">Sunday</option>
+              <option value="2">Monday</option>
+              <option value="3">Tuesday</option>
+              <option value="4">Wednesday</option>
+              <option value="5">Thursday</option>
+              <option value="6">Friday</option>
+              <option value="7">Saturday</option>
+          </select>
+        </div>
+ <hr>
+        <div class="input-field col s4">
+            <label for="hour"><b>Hour</b></label>
+            <br>
+          <select class="form-select" aria-label="Default select example" name="hour">
+              <option value="1">0</option>
+              <option value="2">1</option>
+              <option value="3">2</option>
+              <option value="4">3</option>
+              <option value="5">4</option>
+              <option value="6">5</option>
+              <option value="7">6</option>
+              <option value="8">7</option>
+              <option value="9">8</option>
+              <option value="10">9</option>
+              <option value="11">10</option>
+              <option value="12">11</option>
+              <option value="13">12</option>
+              <option value="14">13</option>
+              <option value="15">14</option>
+              <option value="16">15</option>
+              <option value="17">16</option>
+              <option value="18">17</option>
+              <option value="19">18</option>
+              <option value="20">19</option>
+              <option value="21">20</option>
+              <option value="22">21</option>
+              <option value="23">22</option>
+              <option value="24">23</option>
+          </select>
+
+
+
+        </div>
+      </div>
+
+ <hr>
+
+      <div class="row center">
+
+          <button type="submit" class="btn-large waves-effect waves-light orange">Predict Traffic</button>
+      </div>
+    </form>
+    </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src=".js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+        body {
+  background-image: url('https://images.unsplash.com/photo-1465447142348-e9952c393450?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') ;
+  width: 100%;
+  background-repeat: repeat-y;
+  background-size: cover;
+  overflow-y:scroll;
+}
+#prediction{
+    background: rgba(255, 255, 255, 0.8);
+font-family: Arial, sans-serif;
+width: 50%;
+margin-top: 5%;
+padding: 20px;
+border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#green{
+    color: rgb(25, 159, 25);
+}
+#yellow{
+    color: rgb(212, 202, 10);
+}
+#red{
+    color: rgb(218, 48, 14);
+}
+#maroon{
+    color: maroon;
+}
+    </style>
+</head>
+<body class="img-fluid">
+    <center>
+        <div id="prediction">
+
+        {%if pred<=10%}
+        <h1 id="green">There is no traffic</h1>
+
+        {%elif pred>10 and pred<=20%}
+        <h1 id="yellow">There is moderate traffic</h1>
+
+        {%elif pred>20 and pred<30%}
+        <h1 id="red">There is traffic</h1>
+
+        {%else%}
+        <h1 id="maroon">There is a lot of traffic</h1>
+
+        {%endif%}
+        <br>
+        <h3>Approximate number of Vehicles: {{pred}}</h3>
+        <br>
+        <a href="/">Go Back To HomePage</a>
+        </div>
+    </center>
+
+</body>
+</html>
